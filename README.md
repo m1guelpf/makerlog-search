@@ -1,4 +1,4 @@
-# makerlog-search-front
+# makerlog-search
 
 ## Project setup
 ```
@@ -24,6 +24,3 @@ yarn run test
 ```
 yarn run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
