@@ -3,18 +3,18 @@
     <Header></Header>
     <ais-index index-name="products" :search-store="searchStore">
       <SearchInput />
-      <ais-results v-if="searchStore.query.length > 0">
-          <ProductCard slot-scope="{ result }" :result="result" />
-      </ais-results>
+      <Results :searchStore="searchStore" />
     </ais-index>
+    <MakerAds />
   </div>
 </template>
 
 <script>
 import { createFromAlgoliaCredentials } from "vue-instantsearch";
 import Header from "./components/Header";
+import Results from "./components/Results";
 import SearchInput from "./components/SearchInput";
-import ProductCard from "./components/ProductCard";
+import MakerAds from "./components/MakerAds";
 
 const searchStore = createFromAlgoliaCredentials(
   "X2AXEBEN1X",
@@ -28,9 +28,10 @@ export default {
     };
   },
   components: {
-    'Header': Header,
-    'SearchInput': SearchInput,
-    'ProductCard': ProductCard,
+    Header: Header,
+    SearchInput: SearchInput,
+    Results: Results,
+    MakerAds: MakerAds
   }
 };
 </script>

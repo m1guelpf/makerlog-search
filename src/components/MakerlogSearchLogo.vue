@@ -1,5 +1,5 @@
 <template>
-  <img src="http://m1guelpf.me/e5dae768360c/makerlog-search.svg">
+  <img src="https://m1guelpf.me/e5dae768360c/makerlog-search.svg" />
 </template>
 
 <style>
