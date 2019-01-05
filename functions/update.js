@@ -1,9 +1,9 @@
 const algoliasearch = require('algoliasearch');
 const util = require('util');
 const request = util.promisify(require('request'));
+require('dotenv').config()
 
 exports.handler = async (event, context, callback) => {
-    require('dotenv').config()
     const client = algoliasearch(process.env.APP_KEY, process.env.ADMIN_KEY)
 
     const index = client.initIndex('products')
