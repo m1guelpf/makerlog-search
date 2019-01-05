@@ -1,8 +1,8 @@
-const algoliasearch = require('algoliasearch');
-const util = require('util');
-const request = util.promisify(require('request'));
+import algoliasearch from 'algoliasearch';
+import { promisify } from 'util';
+const request = promisify(require('request'));
 
-exports.handler = async (event, context, callback) => {
+export async function handler(event, context, callback) {
     require('dotenv').config()
     const client = algoliasearch(process.env.APP_KEY, process.env.ADMIN_KEY)
 
