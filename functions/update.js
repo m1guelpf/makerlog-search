@@ -6,14 +6,17 @@ require('dotenv').config()
 exports.handler = async (event, context, callback) => {
     const client = algoliasearch(process.env.APP_KEY, process.env.ADMIN_KEY)
 
+    await client.deleteIndex('products', callback)
+
     const index = client.initIndex('products')
+    
     const {
         body
     } = await request('https://api.getmakerlog.com/products/?format=json')
 
     const projectsTmp = [...JSON.parse(body)]
 
-    while (projectsTmp.length) index.addObjects(projectsTmp.splice(0, 1000))
+    while (projectsTmp.length) await index.addObjects(projectsTmp.splice(0, 1000))
 
     callback(null, {
         statusCode: 200,
